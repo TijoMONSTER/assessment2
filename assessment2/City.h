@@ -8,7 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol CityDelegate
+
+- (void)wikipediaURLForCity:(NSString *)cityName;
+
+@end
+
 @interface City : NSObject
+
+@property id <CityDelegate> delegate;
 
 @property NSString *name;
 @property NSString *stateOrProvince;
@@ -16,5 +24,7 @@
 
 
 - (instancetype)initWithName:(NSString *)name stateOrProvince:(NSString *)stateOrProvince;
+
+- (void)getWikipediaURL;
 
 @end

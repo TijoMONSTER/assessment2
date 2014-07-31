@@ -9,7 +9,7 @@
 #import "CityDetailViewController.h"
 #import "WebViewController.h"
 
-@interface CityDetailViewController () <UITextFieldDelegate>
+@interface CityDetailViewController () <UITextFieldDelegate, CityDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *stateOrProvinceTextField;
@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *wikipediaLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property NSString *url;
 
 @end
 
@@ -33,6 +35,8 @@
 	self.wikipediaLabel.text = [NSString stringWithFormat:@"http://en.wikipedia.org/wiki/%@", self.city.name];
 
 	self.imageView.image = self.city.image;
+
+	self.city.delegate = self;
 }
 
 #pragma mark UITextFieldDelegate
@@ -41,6 +45,16 @@
 {
 	[self saveData];
 	return YES;
+}
+
+#pragma mark CityDelegate
+
+- (void)wikipediaURLForCity:(NSString *)cityName
+{
+	self.url = [NSString stringWithFormat:@"http://en.wikipedia.org/wiki/%@", self.city.name];
+
+	[self performSegueWithIdentifier:@"WikipediaSegue" sender:self];
+
 }
 
 #pragma mark IBActions
@@ -62,8 +76,7 @@
 
 - (IBAction)onWikipediaLabelTapped:(UITapGestureRecognizer *)tapGestureRecognizer
 {
-	NSLog(@"open web view");
-	[self performSegueWithIdentifier:@"WikipediaSegue" sender:self];
+	[self.city getWikipediaURL];
 }
 
 #pragma mark Segues
@@ -72,7 +85,7 @@
 {
 	if ([segue.identifier isEqualToString:@"WikipediaSegue"]) {
 		WebViewController *vc = (WebViewController *) segue.destinationViewController;
-		vc.urlString = self.wikipediaLabel.text;
+		vc.urlString = self.url;
 	}
 }
 

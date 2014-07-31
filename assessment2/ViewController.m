@@ -34,8 +34,6 @@
 				   monterrey,
 				   veracruz,
 				   nil];
-
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -77,6 +75,8 @@
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
+
+
 
 #pragma mark Segues
 
