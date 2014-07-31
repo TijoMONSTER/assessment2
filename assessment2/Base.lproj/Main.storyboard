@@ -145,6 +145,10 @@
                                     <outletCollection property="gestureRecognizers" destination="W4B-vq-hrt" appends="YES" id="gTa-jb-CKl"/>
                                 </connections>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AwC-gK-bb0">
+                                <rect key="frame" x="40" y="267" width="240" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -156,6 +160,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="AwC-gK-bb0" id="Kjb-Aa-P18"/>
                         <outlet property="nameLabel" destination="2vO-AE-Oj8" id="NHJ-Nu-7mw"/>
                         <outlet property="nameTextField" destination="qBX-an-7ap" id="31p-Cm-Sdx"/>
                         <outlet property="stateOrProvinceLabel" destination="eCb-Pv-8W5" id="AvU-20-B0Y"/>

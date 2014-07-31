@@ -16,6 +16,7 @@
 
 	self.name = name;
 	self.stateOrProvince = stateOrProvince;
+	self.image = [UIImage imageNamed:name];
 
 	return self;
 }

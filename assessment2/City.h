@@ -12,6 +12,8 @@
 
 @property NSString *name;
 @property NSString *stateOrProvince;
+@property UIImage *image;
+
 
 - (instancetype)initWithName:(NSString *)name stateOrProvince:(NSString *)stateOrProvince;
 

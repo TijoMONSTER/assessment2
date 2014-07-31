@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *wikipediaLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation CityDetailViewController
@@ -29,6 +31,8 @@
 	self.nameLabel.text = self.nameTextField.text = self.city.name;
 	self.stateOrProvinceLabel.text = self.stateOrProvinceTextField.text = self.city.stateOrProvince;
 	self.wikipediaLabel.text = [NSString stringWithFormat:@"http://en.wikipedia.org/wiki/%@", self.city.name];
+
+	self.imageView.image = self.city.image;
 }
 
 #pragma mark UITextFieldDelegate
