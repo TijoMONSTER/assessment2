@@ -17,6 +17,8 @@
 
 @end
 
+// TODO: delegates in this particular exercise
+
 @implementation ViewController
 
 - (void)viewDidLoad
