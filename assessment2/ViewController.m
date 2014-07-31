@@ -60,6 +60,7 @@
 
 	cell.textLabel.text = [NSString stringWithFormat:@"Name: %@", city.name];
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"State or Province: %@", city.stateOrProvince];
+	cell.imageView.image = city.image;
 
 	return cell;
 }
